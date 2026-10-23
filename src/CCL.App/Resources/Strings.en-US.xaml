@@ -1,0 +1,104 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- English -->
+    <sys:String x:Key="App.Instances">Game instances</sys:String>
+    <sys:String x:Key="App.NewVersion">Get new versions</sys:String>
+    <sys:String x:Key="App.CurrentInstance">Current instance</sys:String>
+    <sys:String x:Key="App.NoInstance">No instance selected</sys:String>
+    <sys:String x:Key="App.Launch">Launch game</sys:String>
+    <sys:String x:Key="App.InstallTitle">Install a version</sys:String>
+    <sys:String x:Key="App.InstallSubtitle">Official version list; assets and libraries are completed automatically</sys:String>
+    <sys:String x:Key="App.IncludeSnapshots">Include snapshots</sys:String>
+    <sys:String x:Key="App.BackToInstance">Back to instance</sys:String>
+    <sys:String x:Key="App.VersionType">Version type</sys:String>
+    <sys:String x:Key="App.JavaRequired">Java required</sys:String>
+    <sys:String x:Key="App.Client">Client</sys:String>
+    <sys:String x:Key="App.Directory">Directory</sys:String>
+    <sys:String x:Key="App.LaunchSettings">Launch settings</sys:String>
+    <sys:String x:Key="App.Account">Account</sys:String>
+    <sys:String x:Key="App.SignInMs">Sign in with Microsoft</sys:String>
+    <sys:String x:Key="App.UseOffline">Use offline account</sys:String>
+    <sys:String x:Key="App.SignOut">Sign out</sys:String>
+    <sys:String x:Key="App.OfflineName">Offline username</sys:String>
+    <sys:String x:Key="App.MaxMemory">Max memory (MB)</sys:String>
+    <sys:String x:Key="App.Language">Language</sys:String>
+    <sys:String x:Key="App.LanguageSystem">Follow system</sys:String>
+    <sys:String x:Key="App.SaveSettings">Save settings</sys:String>
+    <sys:String x:Key="App.OpenGameFolder">Open game folder</sys:String>
+    <sys:String x:Key="App.ViewLogs">View logs</sys:String>
+    <sys:String x:Key="App.TaskQueue">Task queue</sys:String>
+    <sys:String x:Key="App.Collapse">Collapse</sys:String>
+    <sys:String x:Key="App.Expand">Expand</sys:String>
+    <sys:String x:Key="App.CancelAll">Cancel all</sys:String>
+    <sys:String x:Key="App.ClearFinished">Clear finished</sys:String>
+    <sys:String x:Key="App.Cancel">Cancel</sys:String>
+    <sys:String x:Key="App.Delete">Delete</sys:String>
+    <sys:String x:Key="App.Install">Install</sys:String>
+    <sys:String x:Key="App.GameFolder">Game folder: {0}</sys:String>
+
+    <sys:String x:Key="Tip.Minimize">Minimize</sys:String>
+    <sys:String x:Key="Tip.Maximize">Maximize</sys:String>
+    <sys:String x:Key="Tip.Close">Close</sys:String>
+    <sys:String x:Key="Tip.DeleteInstance">Delete instance</sys:String>
+
+    <sys:String x:Key="Login.Title">Microsoft sign-in</sys:String>
+    <sys:String x:Key="Login.Subtitle">Sign in with your Microsoft account. Enter the code below in a browser to authorize; tokens stay on this machine.</sys:String>
+    <sys:String x:Key="Login.ClientIdLabel">Microsoft OAuth client ID</sys:String>
+    <sys:String x:Key="Login.ClientIdHint">Find it in your Azure app registration. The app must support personal Microsoft accounts and have \u201cAllow public client flows\u201d enabled.</sys:String>
+    <sys:String x:Key="Login.EnterCode">Enter this code in your browser</sys:String>
+    <sys:String x:Key="Login.CopyCode">Copy code</sys:String>
+    <sys:String x:Key="Login.OpenBrowser">Open browser</sys:String>
+    <sys:String x:Key="Login.Ready">Preparing…</sys:String>
+    <sys:String x:Key="Login.ClickToStart">Click start to request a device code</sys:String>
+    <sys:String x:Key="Login.FillClientIdFirst">Enter the client ID first</sys:String>
+    <sys:String x:Key="Login.Start">Start sign-in</sys:String>
+    <sys:String x:Key="Login.SaveAndStart">Save and sign in</sys:String>
+    <sys:String x:Key="Login.WhyTitle">Why did this happen</sys:String>
+    <sys:String x:Key="Login.WhyBody">Mojang maintains a manual allow list for third-party apps that call the Java Edition game service APIs. Existing launchers keep working, but new applications must apply and be approved before they can exchange for a Minecraft token.</sys:String>
+    <sys:String x:Key="Login.LearnMore">Official documentation</sys:String>
+    <sys:String x:Key="Login.Success">Signed in as {0}</sys:String>
+    <sys:String x:Key="Login.Cancelled">Sign-in cancelled</sys:String>
+    <sys:String x:Key="Login.CodeCopied">Code copied, paste it in the browser</sys:String>
+    <sys:String x:Key="Login.CopyFailed">Copy failed: {0}</sys:String>
+    <sys:String x:Key="Login.BrowserFailed">Could not open the browser: {0}</sys:String>
+    <sys:String x:Key="Login.NeedClientId">Enter the client ID first</sys:String>
+    <sys:String x:Key="Login.ClientIdNotApplied">The client ID did not take effect, restart the launcher and retry</sys:String>
+    <sys:String x:Key="Login.Failed">Sign-in failed: {0}</sys:String>
+    <sys:String x:Key="Login.ServerSays">Server said: {0}</sys:String>
+
+    <sys:String x:Key="Vm.Ready">Ready</sys:String>
+    <sys:String x:Key="Vm.LoadingVersions">Loading version list…</sys:String>
+    <sys:String x:Key="Vm.VersionCount">{0} versions available</sys:String>
+    <sys:String x:Key="Vm.VersionLoadFailed">Could not load versions: {0}</sys:String>
+    <sys:String x:Key="Vm.InstanceCount">{0} instances</sys:String>
+    <sys:String x:Key="Vm.NoInstances">No versions installed yet — install one from the download page</sys:String>
+    <sys:String x:Key="Vm.Running">{0}{1}</sys:String>
+    <sys:String x:Key="Vm.Queued"> · {0} queued</sys:String>
+    <sys:String x:Key="Vm.QueueIdle">Queue idle · {0} records</sys:String>
+    <sys:String x:Key="Vm.Starting">Starting {0}…</sys:String>
+    <sys:String x:Key="Vm.Started">{0} started (PID {1}); see the logs folder</sys:String>
+    <sys:String x:Key="Vm.Exited">{0} exited with code {1}</sys:String>
+    <sys:String x:Key="Vm.LaunchFailed">Launch failed: {0}</sys:String>
+    <sys:String x:Key="Vm.SignInOk">Switched to Microsoft account {0}</sys:String>
+    <sys:String x:Key="Vm.OfflineOk">Switched to offline account {0}</sys:String>
+    <sys:String x:Key="Vm.SignOutOk">Signed out {0}</sys:String>
+    <sys:String x:Key="Vm.NotMicrosoft">The current account is not a Microsoft account</sys:String>
+    <sys:String x:Key="Vm.DeleteTitle">Delete instance</sys:String>
+    <sys:String x:Key="Vm.DeleteBody">Delete \u201c{0}\u201d?
+
+This removes {1} of version files. libraries and assets are shared and stay untouched. This cannot be undone.</sys:String>
+    <sys:String x:Key="Vm.DeleteBlocked">\u201c{0}\u201d still has unfinished tasks — cancel them first</sys:String>
+    <sys:String x:Key="Vm.HintSelectInstance">Select an instance on the left</sys:String>
+    <sys:String x:Key="Vm.HintIncomplete">Install incomplete — reinstall from the download page to finish</sys:String>
+    <sys:String x:Key="Vm.HintOffline">Offline sign-in</sys:String>
+    <sys:String x:Key="Vm.AccountNone">No account</sys:String>
+    <sys:String x:Key="Vm.AccountLabel">{0} · {1}</sys:String>
+    <sys:String x:Key="Vm.AccountHintConfigured">Microsoft sign-in available</sys:String>
+    <sys:String x:Key="Vm.AccountHintMissing">Enter an Azure client ID in the sign-in window first</sys:String>
+    <sys:String x:Key="Vm.TaskSummaryRunning">{0} tasks · {1}</sys:String>
+    <sys:String x:Key="Vm.TaskSummaryIdle">{0} records</sys:String>
+    <sys:String x:Key="Vm.SaveSettingsOk">Settings saved</sys:String>
+
+</ResourceDictionary>

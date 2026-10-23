@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CCL.App/CCL.App.csproj" />
+    <Project Path="src/CCL.Core/CCL.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CCL.Core.Tests/CCL.Core.Tests.csproj" />
+  </Folder>
+</Solution>
