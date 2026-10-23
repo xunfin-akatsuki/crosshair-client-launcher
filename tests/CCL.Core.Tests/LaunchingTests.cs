@@ -77,9 +77,13 @@ public class JavaLocatorTests
     {
         var runtimes = JavaLocator.Discover();
 
-        Assert.NotEmpty(runtimes);
+        // 断言只检查结果自身的自洽性，不假设宿主机装了 Java（CI runner 通常没有）
         Assert.All(runtimes, r => Assert.True(r.MajorVersion > 0));
         Assert.All(runtimes, r => Assert.True(File.Exists(r.ExecutablePath)));
+        Assert.All(runtimes, r => Assert.True(Directory.Exists(r.Home)));
+        Assert.Equal(runtimes.Count, runtimes.Select(r => r.ExecutablePath).Distinct().Count());
+        Assert.Equal(runtimes.OrderByDescending(r => r.MajorVersion).Select(r => r.MajorVersion),
+            runtimes.Select(r => r.MajorVersion));
     }
 }
 
