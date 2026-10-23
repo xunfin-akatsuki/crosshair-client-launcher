@@ -1,6 +1,5 @@
 using CCL.Core.Localization;
 using CCL.Core.Diagnostics;
-using CCL.Core.Localization;
 using CCL.Core.Launching;
 
 namespace CCL.Core.Accounts;

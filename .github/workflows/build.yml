@@ -1,0 +1,46 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore CCL.slnx
+
+      - name: Build
+        run: dotnet build CCL.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test CCL.slnx -c Release --no-build --logger "console;verbosity=normal"
+
+      - name: Publish (portable single file)
+        run: >
+          dotnet publish "src/CCL.App/CCL.App.csproj"
+          -c Release -r win-x64 -p:Platform=x64 -p:DeleteExistingFiles=true
+          -o ./artifact --no-self-contained
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CCL-win-x64
+          path: artifact/**
+          if-no-files-found: error

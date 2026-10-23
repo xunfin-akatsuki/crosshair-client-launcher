@@ -4,5 +4,6 @@ obj/
 .vs/
 .idea/
 artifacts/
+artifact/
 publish/
 ccl.portable

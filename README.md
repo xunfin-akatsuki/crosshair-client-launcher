@@ -1,8 +1,23 @@
 # Crosshair Client Launcher (CCL)
 
+[![build](https://github.com/xunfin-akatsuki/crosshair-client-launcher/actions/workflows/build.yml/badge.svg)](https://github.com/xunfin-akatsuki/crosshair-client-launcher/actions/workflows/build.yml)
+
 一个从零编写的 Minecraft: Java 版第三方启动器，Windows 桌面应用，使用 .NET 10 + WPF。
 
 本项目不使用、不包含任何其他启动器的源代码，架构与实现均为独立编写。
+
+## English summary
+
+CCL is an independently written third-party launcher for **Minecraft: Java Edition**, built with .NET 10 and WPF for Windows. It contains no code from other launchers.
+
+- **Installing versions** — reads the official version manifest, downloads the client jar, libraries and asset objects, verifies SHA-1 hashes, resumes interrupted downloads, and falls back to the BMCLAPI mirror when an official host fails.
+- **Launching the game** — detects installed Java runtimes, builds the classpath, evaluates argument templates (including OS/feature rules) and captures the game log.
+- **Instance management** — scans local versions, deletes instances, and flags incomplete installations so they cannot be launched by accident.
+- **Task queue** — download and install jobs run one at a time, each cancellable, and a failure never blocks the rest of the queue.
+- **Accounts** — offline accounts, plus Microsoft accounts through the official OAuth 2.0 device code flow. Game ownership is verified against `/entitlements/mcstore` before a profile is accepted, and access/refresh tokens are stored only on the local machine, encrypted with Windows DPAPI. The launcher contains no telemetry and talks to no account server of its own.
+- **UI** — dark acrylic-style interface, Chinese and English, following the system language by default.
+
+Mojang currently maintains a manual allow list for third-party applications using the Java Edition game service APIs, so a self-registered Azure client ID must be [approved](https://aka.ms/AppRegInfo) before it can exchange for a Minecraft token. Until then, an offline account can be used.
 
 ## 功能
 
@@ -52,4 +67,18 @@ Mojang 目前对访问 Java 版游戏服务 API 的第三方应用实行人工�
 
 ## 许可
 
-待定。
+本项目基于 [Apache License 2.0](LICENSE) 发布。
+
+```
+Copyright 2026 xunfin-akatsuki
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+```
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE). Copyright 2026 xunfin-akatsuki.

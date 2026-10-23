@@ -1,11 +1,8 @@
 using System.Diagnostics;
 using CCL.Core.Localization;
 using CCL.Core.Configuration;
-using CCL.Core.Localization;
 using CCL.Core.Diagnostics;
-using CCL.Core.Localization;
 using CCL.Core.Layout;
-using CCL.Core.Localization;
 using CCL.Core.Minecraft.Versioning;
 
 namespace CCL.Core.Launching;
