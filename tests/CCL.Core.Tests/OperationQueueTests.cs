@@ -19,7 +19,17 @@ internal sealed class SingleThreadContext : SynchronizationContext, IDisposable
         _thread.Start();
     }
 
-    public override void Post(SendOrPostCallback d, object? state) => _queue.Add((d, state));
+    public override void Post(SendOrPostCallback d, object? state)
+    {
+        // 上下文关闭后队列不再接收，静默丢弃，避免在后台线程抛出未处理异常
+        try
+        {
+            _queue.Add((d, state));
+        }
+        catch (InvalidOperationException)
+        {
+        }
+    }
 
     public override void Send(SendOrPostCallback d, object? state) => Invoke(() => d(state));
 
@@ -49,7 +59,17 @@ internal sealed class SingleThreadContext : SynchronizationContext, IDisposable
     private void Loop()
     {
         SetSynchronizationContext(this);
-        foreach (var (callback, state) in _queue.GetConsumingEnumerable()) callback(state);
+        foreach (var (callback, state) in _queue.GetConsumingEnumerable())
+        {
+            try
+            {
+                callback(state);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("同步上下文回调异常：" + ex);
+            }
+        }
     }
 
     public void Dispose() => _queue.CompleteAdding();

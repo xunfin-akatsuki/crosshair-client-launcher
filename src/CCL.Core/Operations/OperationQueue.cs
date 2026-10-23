@@ -204,16 +204,42 @@ public sealed class OperationQueue : IAsyncDisposable
 
     private void Mutate(Action action)
     {
-        if (_context is null) action();
-        else _context.Post(_ => action(), null);
+        if (_context is null)
+        {
+            action();
+            return;
+        }
+
+        TryPost(() => action());
     }
 
     private void RaiseActivity()
     {
         var handler = ActivityChanged;
         if (handler is null) return;
-        if (_context is null) handler(this, EventArgs.Empty);
-        else _context.Post(_ => handler(this, EventArgs.Empty), null);
+        if (_context is null)
+        {
+            handler(this, EventArgs.Empty);
+            return;
+        }
+
+        TryPost(() => handler(this, EventArgs.Empty));
+    }
+
+    /// <summary>
+    /// 向上下文投递回调。界面已关闭时 <see cref="SynchronizationContext.Post"/> 会抛异常，
+    /// 而这段代码常在后台线程上运行——异常逃出去会直接终止进程，所以必须就地吞掉。
+    /// </summary>
+    private void TryPost(Action action)
+    {
+        try
+        {
+            _context!.Post(_ => action(), null);
+        }
+        catch (Exception ex) when (ex is InvalidOperationException or ObjectDisposedException)
+        {
+            // 目标上下文已销毁：本次通知没有接收方，丢弃即可
+        }
     }
 
     public async ValueTask DisposeAsync()
